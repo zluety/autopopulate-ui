@@ -10,9 +10,9 @@ interface Props {
 export const ResultRow: FunctionComponent<Props> = ({ key, company_id, statement_date }: Props) => {
   return (
     <div>
-      <span className="component-emoji-result-row copy-to-clipboard">{key}</span>
-      <span className="title">{company_id}</span>
-      <span className="info">{statement_date}</span>
+      <span className="key">{key}</span>
+      <span className="company_id">{company_id}</span>
+      <span className="statement_date">{statement_date}</span>
     </div>
   );
 }

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
 import { NavBar } from './NavBar';
-import SearchInput from "./SearchInput";
+import { SearchInput } from "./SearchInput";
 import { Results } from "./Results";
 import filterResults from './filterResults';
+
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
         <NavBar />
       </div>
       <div>
-        <SearchInput textChange={handleSearchChange} />
+        <SearchInput fn={handleSearchChange}/>
         <Results data={query} />
       </div>
     </div>
