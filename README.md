@@ -9,3 +9,5 @@
 - Add authenication with Active Directory
 - ~~Upload statement for processing~~
     - Create Form
+- Filter table based on search
+- Notification on Upload
