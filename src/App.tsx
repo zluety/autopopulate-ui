@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import './App.css';
 import { NavBar } from './NavBar';
 import { SearchInput } from "./SearchInput";
-import { Results } from "./Results";
+import { DetailsListExample } from './DetailsListExample';
 import filterResults from './filterResults';
-
-
 
 function App() {
   const [query, setQuery] = useState(filterResults("", 20));
@@ -16,13 +14,9 @@ function App() {
 
   return (
     <div className="App">
-      <div id="nav-window">
         <NavBar />
-      </div>
-      <div>
-        <SearchInput fn={handleSearchChange}/>
-        <Results data={query} />
-      </div>
+        <SearchInput handleChange={handleSearchChange}/>
+        <DetailsListExample />
     </div>
   );
 }

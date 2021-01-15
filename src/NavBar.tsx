@@ -1,27 +1,38 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useRef } from 'react';
+import { CommandBar, ICommandBarItemProps } from 'office-ui-fabric-react/lib/CommandBar';
 import './NavBar.css';
-import { Icon } from '@fluentui/react/lib/Icon';
+
+
 
 export const NavBar: FunctionComponent = () => {
-    return (
-        <nav className="navbar">
-            <button className="nav-button">
-                <Icon iconName="GlobalNavButton" />
-            </button>
-            <ul className="navbar-nav">
-                <li className="nav-item">
-                    <a href="#" className="nav-link">
-                        <Icon iconName="Add" />
-                        <span className="link-text">New</span>
-                    </a>
-                </li>
-                <li className="nav-item">
-                    <a href="#" className="nav-link">
-                        <Icon iconName="Settings" />
-                        <span className="link-text">Settings</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    )
-}
+
+  const inputEl = useRef<HTMLInputElement>(null);
+
+  const onButtonClick = () => {
+    console.log("Upload Button Clicked!");
+
+    if (inputEl && inputEl.current) {
+      inputEl.current.click();
+    }
+  };
+
+  const _items: ICommandBarItemProps[] = [
+    {
+      key: 'upload',
+      text: 'Upload',
+      iconProps: { iconName: 'Upload' },
+      onClick: () => onButtonClick()
+    }
+  ];
+
+  return (
+    <div>
+      <input type="file" ref={inputEl} />
+      <CommandBar
+        className="nav"
+        items={_items}
+        ariaLabel="Use left and right arrow keys to navigate between commands"
+      />
+    </div>
+  );
+};
